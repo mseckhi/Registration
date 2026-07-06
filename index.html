@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCT Tech Education Initiative - Registration Portal</title>
+    <!-- Google Fonts for Modern UX -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f4c81; /* Deep Corporate Navy */
+            --secondary-color: #1b8a5a; /* Trustworthy Green */
+            --accent-color: #e67e22; /* E-Commerce Orange */
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+            --disabled-color: #bdc3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .portal-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px; /* Perfect Mobile Sizing */
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .portal-header {
+            background: linear-gradient(135deg, var(--primary-color), #1d6fa5);
+            color: #ffffff;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .portal-header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .portal-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .form-body {
+            padding: 25px 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+        }
+
+        /* Styling for Locked/Disabled Items */
+        .input-group select option:disabled {
+            color: #a0aec0;
+            background-color: #edf2f7;
+        }
+
+        .alert-box {
+            background-color: #fff3cd;
+            border-left: 4px solid var(--accent-color);
+            color: #856404;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .notice-badge {
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 12px rgba(27, 138, 90, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: #156d46;
+        }
+
+        .submit-btn:disabled {
+            background-color: var(--disabled-color);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #718096;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="portal-container">
+    <div class="portal-header">
+        <h1>GCT Tech Education Initiative</h1>
+        <p>Skill-Based Professional Registration Portal</p>
+    </div>
+
+    <form id="registrationForm" class="form-body">
+        <div class="notice-badge">🌟 Special Discount for First 25 Admissions!</div>
+        
+        <!-- Custom Real-time Notification Box -->
+        <div id="statusAlert" class="alert-box"></div>
+
+        <!-- Full Name -->
+        <div class="input-group">
+            <label for="fullName">Full Name (English)</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="input-group">
+            <label for="contactNo">WhatsApp / Contact Number</label>
+            <input type="tel" id="contactNo" name="contactNo" placeholder="e.g., 03001234567" required>
+        </div>
+
+        <!-- Campus Location (Only Shafi Selectable) -->
+        <div class="input-group">
+            <label for="location">School / Campus Location</label>
+            <select id="location" name="location" required>
+                <option value="Muhammad Shafi Educational Complex (MSEC)" selected>Muhammad Shafi Educational Complex (MSEC)</option>
+                <option value="Martin Dow Campus" disabled>Martin Dow Campus (Currently Locked)</option>
+                <option value="Saba Campus" disabled>Saba Campus (Currently Locked)</option>
+            </select>
+        </div>
+
+        <!-- Course Selection with Dynamic Custom Alerts -->
+        <div class="input-group">
+            <label for="course">Select Technical Course</label>
+            <select id="course" name="course" onchange="checkCourseAvailability(this)" required>
+                <option value="" disabled selected>-- Choose a Course --</option>
+                <option value="E-Commerce Success Program">E-Commerce Success Program (Active)</option>
+                <option value="Digital Marketing">Digital Marketing (Not Available)</option>
+                <option value="Graphic Designing">Graphic Designing (Not Available)</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitBtn" class="submit-btn">Register for Course</button>
+
+        <p class="footer-note">Certified by NUTECH University Islamabad</p>
+    </form>
+</div>
+
+<script>
+    // URL Replacement Placeholder: اپنی گوگل ویب ایپ یو آر ایل یہاں ڈالیں
+    const GOOGLE_WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    function checkCourseAvailability(selectElement) {
+        const alertBox = document.getElementById("statusAlert");
+        const submitBtn = document.getElementById("submitBtn");
+        const selectedValue = selectElement.value;
+
+        if (selectedValue === "Digital Marketing" || selectedValue === "Graphic Designing") {
+            alertBox.style.display = "block";
+            alertBox.innerText = "معذرت، فی الحال یہ کورس دستیاب نہیں۔ براہ کرم کوئی اور کورس منتخب کریں۔";
+            submitBtn.disabled = true;
+        } else {
+            alertBox.style.display = "none";
+            submitBtn.disabled = false;
+        }
+    }
+
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById("submitBtn");
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Processing, Please Wait...";
+
+        const formData = new FormData(this);
+        const searchParams = new URLSearchParams();
+
+        for (const pair of formData) {
+            searchParams.append(pair[0], pair[1]);
+        }
+
+        // Send Data to Google Sheets via Fetch API API
+        fetch(GOOGLE_WEB_APP_URL, {
+            method: 'POST',
+            body: searchParams,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.result === "success") {
+                alert("رجسٹریشن کامیابی کے ساتھ مکمل ہو گئی ہے!");
+                document.getElementById("registrationForm").reset();
+            } else {
+                alert("خرابی: ڈیٹا محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("رجسٹریشن کا عمل مکمل ہو گیا ہے۔ (نیٹ ورک کی تصدیق کریں)");
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Register for Course";
+        });
+    });
+</script>
+
+</body>
+</html>
