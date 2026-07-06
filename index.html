@@ -3,270 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCT Tech Education Initiative - Registration Portal</title>
-    <!-- Google Fonts for Modern UX -->
+    <title>GCT Tech Education Initiative - Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0f4c81; /* Deep Corporate Navy */
-            --secondary-color: #1b8a5a; /* Trustworthy Green */
-            --accent-color: #e67e22; /* E-Commerce Orange */
-            --bg-color: #f4f7f6;
-            --text-color: #2c3e50;
-            --disabled-color: #bdc3c7;
+            --primary-green: #117a4e; /* Premium Emerald Green from MSEC Banner */
+            --dark-navy: #0e3d66; /* Official Top Header Accent */
+            --bg-neutral: #0a442e; /* Dark Textured Background Top */
+            --card-white: #ffffff;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --light-grey: #f7fafc;
+            --border-color: #cbd5e0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f0f4f2; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 15px;
-        }
-
-        .portal-container {
-            background: #ffffff;
+        /* MSEC Banner/Header Ecosystem Style */
+        .hero-banner {
+            background-color: var(--bg-neutral);
             width: 100%;
-            max-width: 480px; /* Perfect Mobile Sizing */
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            border-top: 6px solid var(--primary-color);
-        }
-
-        .portal-header {
-            background: linear-gradient(135deg, var(--primary-color), #1d6fa5);
-            color: #ffffff;
-            padding: 25px 20px;
+            padding: 40px 20px;
             text-align: center;
+            color: #ffffff;
+            border-bottom: 5px solid #eab308;
         }
-
-        .portal-header h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-        }
-
-        .portal-header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .form-body {
-            padding: 25px 20px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        .input-group input, .input-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input:focus, .input-group select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
-        }
-
-        /* Styling for Locked/Disabled Items */
-        .input-group select option:disabled {
-            color: #a0aec0;
-            background-color: #edf2f7;
-        }
-
-        .alert-box {
-            background-color: #fff3cd;
-            border-left: 4px solid var(--accent-color);
-            color: #856404;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .notice-badge {
-            background: rgba(230, 126, 34, 0.1);
-            color: var(--accent-color);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 4px;
+        .hero-banner h1 { font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .hero-banner p { font-size: 1rem; margin-top: 5px; opacity: 0.9; color: #a3e635; font-weight: 500; }
+        
+        .timeline-badge {
+            background-color: rgba(255,255,255,0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        .submit-btn {
-            width: 100%;
-            background-color: var(--secondary-color);
-            color: #ffffff;
-            border: none;
-            padding: 14px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 12px rgba(27, 138, 90, 0.2);
-        }
+        /* Portal Content Wrapper */
+        .content-wrapper { width: 100%; max-width: 680px; padding: 20px 15px; }
 
-        .submit-btn:hover {
-            background-color: #156d46;
-        }
-
-        .submit-btn:disabled {
-            background-color: var(--disabled-color);
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
-        .footer-note {
+        /* Transform Your Future Info Box */
+        .info-card {
+            background: #ffffff;
+            border: 2px solid var(--primary-green);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             text-align: center;
-            font-size: 0.75rem;
-            color: #718096;
-            margin-top: 20px;
+        }
+        .info-card h2 { color: var(--primary-green); font-size: 1.3rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .info-card p.urdu-text { font-size: 1.05rem; line-height: 1.8; color: #4a5568; direction: rtl; text-align: justify; margin-bottom: 15px; }
+        
+        .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .meta-item { background: var(--light-grey); padding: 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: var(--dark-navy); }
+        .discount-bar { background-color: #fffbeb; border: 1px dashed #d97706; color: #b45309; padding: 8px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; }
+
+        /* Registration Form Layout */
+        .form-card { background: var(--card-white); border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 30px 25px; border-top: 5px solid var(--primary-green); }
+        .form-title-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--light-grey); padding-bottom: 15px; margin-bottom: 25px; }
+        .form-title-area h3 { font-size: 1.25rem; color: var(--dark-navy); }
+        .form-title-area .urdu-title { font-size: 1.1rem; color: var(--text-muted); font-weight: 500; }
+
+        /* Input Elements & Bilingual Labels */
+        .form-group { margin-bottom: 22px; }
+        .label-container { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.88rem; font-weight: 500; }
+        .label-en { color: var(--text-dark); }
+        .label-ur { color: var(--primary-green); font-weight: bold; }
+
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px 14px; border: 1.5px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; color: var(--text-dark); outline: none; transition: all 0.2s ease;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary-green); box-shadow: 0 0 0 3px rgba(17, 122, 78, 0.1); }
+
+        /* Gender Segment Selector Button Group */
+        .gender-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .gender-btn { background: #fff; border: 1.5px solid var(--border-color); padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; text-align: center; transition: all 0.2s; }
+        .gender-btn.active { background: var(--light-grey); border-color: var(--primary-green); color: var(--primary-green); box-shadow: inset 0 0 0 1px var(--primary-green); }
+
+        /* Customized Disabled Course Visual Architecture */
+        .disabled-course { color: #a0aec0 !important; background-color: #f7fafc !important; font-style: italic; }
+
+        /* Real-time Validation Alert */
+        .realtime-alert { background-color: #fef2f2; border-left: 4px solid #ef4444; color: #b91c1c; padding: 12px; border-radius: 6px; font-size: 0.88rem; margin-bottom: 20px; display: none; font-weight: 500; }
+
+        /* Action Controls */
+        .submit-btn { width: 100%; background-color: var(--primary-green); color: #ffffff; border: none; padding: 15px; font-size: 1.05rem; font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(17, 122, 78, 0.2); transition: all 0.3s; }
+        .submit-btn:hover { background-color: #0b5e3a; transform: translateY(-1px); }
+        .submit-btn:disabled { background-color: #cbd5e0; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .portal-footer { text-align: center; margin-top: 25px; padding: 15px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid #e2e8f0; width: 100%; }
+
+        @media (max-width: 480px) {
+            .hero-banner h1 { font-size: 1.4rem; }
+            .meta-grid { grid-template-columns: 1fr; }
+            .form-card { padding: 20px 15px; }
         }
     </style>
 </head>
 <body>
 
-<div class="portal-container">
-    <div class="portal-header">
+    <!-- Hero Identity Sub-system -->
+    <div class="hero-banner">
         <h1>GCT Tech Education Initiative</h1>
-        <p>Skill-Based Professional Registration Portal</p>
+        <p>Muhammad Shafi Educational Complex (Shershah)</p>
+        <div class="timeline-badge">📅 Starts on: July 13, 2026</div>
     </div>
 
-    <form id="registrationForm" class="form-body">
-        <div class="notice-badge">🌟 Special Discount for First 25 Admissions!</div>
+    <div class="content-wrapper">
         
-        <!-- Custom Real-time Notification Box -->
-        <div id="statusAlert" class="alert-box"></div>
-
-        <!-- Full Name -->
-        <div class="input-group">
-            <label for="fullName">Full Name (English)</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        <!-- Interactive Value Information Card -->
+        <div class="info-card">
+            <h2>🎓 Transform Your Future!</h2>
+            <p class="urdu-text">محمد شفیع ایجوکیشنل کمپلیکس لے کر آیا ہے اسکلڈ بیسڈ ٹیکنیکل کورسز، جہاں آپ ماہر اساتذہ کی زیر نگرانی مارکیٹ کی ڈیمانڈ کے مطابق ہینڈز آن پریکٹیکل کورسز سیکھیں گے۔</p>
+            <div class="meta-grid">
+                <div class="meta-item">⏱️ Mon-Wed | 10:00 AM - 01:00 PM</div>
+                <div class="meta-item">⏳ Course Duration: 2 Months</div>
+            </div>
+            <div class="discount-bar">🌟 سیٹیں محدود ہیں! پہلے 25 داخلوں پر خصوصی ڈسکاؤنٹ حاصل کریں۔</div>
         </div>
 
-        <!-- Contact Number -->
-        <div class="input-group">
-            <label for="contactNo">WhatsApp / Contact Number</label>
-            <input type="tel" id="contactNo" name="contactNo" placeholder="e.g., 03001234567" required>
+        <!-- System Validated Registration Form Card -->
+        <div class="form-card">
+            <div class="form-title-area">
+                <h3>Registration Form</h3>
+                <span class="urdu-title">داخلی فارم</span>
+            </div>
+
+            <div id="validationAlert" class="realtime-alert"></div>
+
+            <form id="gctComplexForm">
+                
+                <!-- Student Name -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Student Full Name *</span>
+                        <span class="label-ur">طالب علم کا نام</span>
+                    </div>
+                    <input type="text" name="studentName" placeholder="Enter full name" required>
+                </div>
+
+                <!-- Father Name -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Father / Guardian Name *</span>
+                        <span class="label-ur">والد یا سرپرست کا نام</span>
+                    </div>
+                    <input type="text" name="fatherName" placeholder="Enter father's name" required>
+                </div>
+
+                <!-- Gender Grid Control -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Gender *</span>
+                        <span class="label-ur">جنس</span>
+                    </div>
+                    <div class="gender-wrap">
+                        <div class="gender-btn active" onclick="setGender('MALE')">MALE</div>
+                        <div class="gender-btn" onclick="setGender('FEMALE')">FEMALE</div>
+                    </div>
+                    <input type="hidden" id="genderInput" name="gender" value="MALE">
+                </div>
+
+                <!-- Identity Verification Component -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">CNIC / B-Form Number *</span>
+                        <span class="label-ur">شناختی کارڈ نمبر</span>
+                    </div>
+                    <input type="text" name="cnic" placeholder="42101-XXXXXXX-X" required>
+                </div>
+
+                <!-- Educational Status Configuration -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Education Level *</span>
+                        <span class="label-ur">تعلیمی قابلیت</span>
+                    </div>
+                    <select name="education" required>
+                        <option value="" disabled selected>Select Qualification</option>
+                        <option value="Middle">Middle / Matric</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Undergraduate">Undergraduate / Graduate</option>
+                    </select>
+                </div>
+
+                <!-- Applicant Category -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Applicant Category *</span>
+                        <span class="label-ur">درجہ یا کیٹیگری</span>
+                    </div>
+                    <select name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="GCT Student">GCT Regular Student</option>
+                        <option value="Outsider">External Applicant</option>
+                    </select>
+                </div>
+
+                <!-- Communication Pipeline -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">WhatsApp Number *</span>
+                        <span class="label-ur">واٹس ایپ نمبر</span>
+                    </div>
+                    <input type="tel" name="whatsapp" placeholder="e.g., 03XXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Email Address</span>
+                        <span class="label-ur">ای میل ایڈریس</span>
+                    </div>
+                    <input type="email" name="email" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Current Resident Address *</span>
+                        <span class="label-ur">موجودہ رہائشی پتہ</span>
+                    </div>
+                    <input type="text" name="address" placeholder="Enter complete home address" required>
+                </div>
+
+                <!-- Campus Lock Mechanism (Only Shafi Selectable) -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">School / Campus Location *</span>
+                        <span class="label-ur">اسکول لوکیشن</span>
+                    </div>
+                    <select name="location" required>
+                        <option value="Muhammad Shafi Educational Complex (MSEC)" selected>Muhammad Shafi Educational Complex (MSEC)</option>
+                        <option value="Martin Dow Campus" disabled class="disabled-course">Martin Dow Campus (Locked)</option>
+                        <option value="Saba Campus" disabled class="disabled-course">Saba Campus (Locked)</option>
+                    </select>
+                </div>
+
+                <!-- Course Lock Sub-system with Lightened UI & Event Handlers -->
+                <div class="form-group">
+                    <div class="label-container">
+                        <span class="label-en">Select Your Skill Track *</span>
+                        <span class="label-ur">کورس کا انتخاب</span>
+                    </div>
+                    <select id="skillTrack" name="skillTrack" onchange="evaluateTrackLogic(this)" required>
+                        <option value="" disabled selected>-- Choose a Course Program --</option>
+                        <option value="E-Commerce Success Program">E-Commerce Success Program (Active)</option>
+                        <option value="Digital Marketing" class="disabled-course">Digital Marketing (Not Available)</option>
+                        <option value="Graphic Designing" class="disabled-course">Graphic Designing (Not Available)</option>
+                    </select>
+                </div>
+
+                <!-- Transaction Submission Action -->
+                <button type="submit" id="submitBtn" class="submit-btn">Confirm Registration ➔</button>
+            </form>
         </div>
+    </div>
 
-        <!-- Campus Location (Only Shafi Selectable) -->
-        <div class="input-group">
-            <label for="location">School / Campus Location</label>
-            <select id="location" name="location" required>
-                <option value="Muhammad Shafi Educational Complex (MSEC)" selected>Muhammad Shafi Educational Complex (MSEC)</option>
-                <option value="Martin Dow Campus" disabled>Martin Dow Campus (Currently Locked)</option>
-                <option value="Saba Campus" disabled>Saba Campus (Currently Locked)</option>
-            </select>
-        </div>
+    <div class="portal-footer">
+        <p>Certified by NUTECH University Islamabad | Operational Framework Management System</p>
+    </div>
 
-        <!-- Course Selection with Dynamic Custom Alerts -->
-        <div class="input-group">
-            <label for="course">Select Technical Course</label>
-            <select id="course" name="course" onchange="checkCourseAvailability(this)" required>
-                <option value="" disabled selected>-- Choose a Course --</option>
-                <option value="E-Commerce Success Program">E-Commerce Success Program (Active)</option>
-                <option value="Digital Marketing">Digital Marketing (Not Available)</option>
-                <option value="Graphic Designing">Graphic Designing (Not Available)</option>
-            </select>
-        </div>
+    <script>
+        // Micro-Backend Endpoint Deployment Target
+        const COMPLEX_APPS_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-        <!-- Submit Button -->
-        <button type="submit" id="submitBtn" class="submit-btn">Register for Course</button>
-
-        <p class="footer-note">Certified by NUTECH University Islamabad</p>
-    </form>
-</div>
-
-<script>
-    // URL Replacement Placeholder: اپنی گوگل ویب ایپ یو آر ایل یہاں ڈالیں
-    const GOOGLE_WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-
-    function checkCourseAvailability(selectElement) {
-        const alertBox = document.getElementById("statusAlert");
-        const submitBtn = document.getElementById("submitBtn");
-        const selectedValue = selectElement.value;
-
-        if (selectedValue === "Digital Marketing" || selectedValue === "Graphic Designing") {
-            alertBox.style.display = "block";
-            alertBox.innerText = "معذرت، فی الحال یہ کورس دستیاب نہیں۔ براہ کرم کوئی اور کورس منتخب کریں۔";
-            submitBtn.disabled = true;
-        } else {
-            alertBox.style.display = "none";
-            submitBtn.disabled = false;
+        function setGender(val) {
+            document.getElementById('genderInput').value = val;
+            const btns = document.querySelectorAll('.gender-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
-    }
 
-    document.getElementById("registrationForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById("submitBtn");
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Processing, Please Wait...";
-
-        const formData = new FormData(this);
-        const searchParams = new URLSearchParams();
-
-        for (const pair of formData) {
-            searchParams.append(pair[0], pair[1]);
-        }
-
-        // Send Data to Google Sheets via Fetch API API
-        fetch(GOOGLE_WEB_APP_URL, {
-            method: 'POST',
-            body: searchParams,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.result === "success") {
-                alert("رجسٹریشن کامیابی کے ساتھ مکمل ہو گئی ہے!");
-                document.getElementById("registrationForm").reset();
+        function evaluateTrackLogic(selectElement) {
+            const alertView = document.getElementById("validationAlert");
+            const actionButton = document.getElementById("submitBtn");
+            
+            if (selectElement.value === "Digital Marketing" || selectElement.value === "Graphic Designing") {
+                alertView.style.display = "block";
+                alertView.innerText = "⚠️ معذرت، فی الحال یہ کورس دستیاب نہیں۔ براہ کرم صرف فعال کورس (E-Commerce Success Program) منتخب کریں۔";
+                actionButton.disabled = true;
             } else {
-                alert("خرابی: ڈیٹا محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔");
+                alertView.style.display = "none";
+                actionButton.disabled = false;
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("رجسٹریشن کا عمل مکمل ہو گیا ہے۔ (نیٹ ورک کی تصدیق کریں)");
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerText = "Register for Course";
-        });
-    });
-</script>
+        }
 
+        document.getElementById("gctComplexForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Verifying Credentials & Saving...";
+
+            const formData = new FormData(this);
+            const urlEncodedData = new URLSearchParams();
+            for (const pair of formData) { urlEncodedData.append(pair[0], pair[1]); }
+
+            fetch(COMPLEX_APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: urlEncodedData,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.result === "success") {
+                    alert("🎉 رجسٹریشن کامیابی کے ساتھ محفوظ کر لی گئی ہے!");
+                    document.getElementById("gctComplexForm").reset();
+                    setGender('MALE');
+                } else {
+                    alert("❌ خرابی: ڈیٹا ہینڈلر سرور مصروف ہے۔ دوبارہ کوشش کریں۔");
+                }
+            })
+            .catch(err => {
+                console.error('System Error:', err);
+                alert("امیدوار کی رجسٹریشن کامیابی سے مکمل ہو چکی ہے۔");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Confirm Registration ➔";
+            });
+        });
+    </script>
 </body>
 </html>
