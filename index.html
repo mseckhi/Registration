@@ -3,262 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCT Tech Education Initiative | Official Portal</title>
+    <title>GCT Tech Education Initiative | Official Registration Portal</title>
     
-    <!-- Google Fonts & Jamil Noori Nastaleeq Web Font Integration -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-    
+    <!-- Google Fonts & Premium Jamil Noori Nastaleeq Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Embedding Jamil Noori Nastaleeq for Authentic Urdu Rendering */
+        @import url('https://fonts.cdnfonts.com/css/jamil-noori-nastaleeq');
+
         :root {
-            --gct-green: #117a4e;
-            --gct-dark-green: #0a442e;
-            --navy-blue: #0e3d66;
+            --gct-primary: #117a4e;      /* Premium MSEC Emerald Green */
+            --gct-dark: #0a442e;         /* Forest Dark Green */
+            --gct-accent: #eab308;       /* Gold Accent */
             --danger-red: #dc2626;
-            --disabled-gray: #e2e8f0;
             --text-dark: #1a202c;
             --text-muted: #718096;
-            --gold-accent: #eab308;
+            --border-color: #cbd5e0;
+            --light-bg: #f7fafc;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #f3f4f6; color: var(--text-dark); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        body { background-color: #f3f7f5; color: var(--text-dark); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Urdu Font Class Utility */
-        .urdu-font { font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; }
+        /* Pure Urdu Style Class Wrapper */
+        .urdu-text { font-family: 'Jamil Noori Nastaleeq', 'Urdu Typesetting', serif; direction: rtl; font-size: 1.15rem; line-height: 1.8; }
 
-        /* Multi-Functional Corporate Header & Navbar System */
-        .navbar { background-color: var(--navy-blue); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--gct-green); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .nav-logo-area { display: flex; flex-direction: column; color: #ffffff; }
-        .nav-logo-area h1 { font-size: 1.25rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-logo-area p { font-size: 0.75rem; color: var(--gold-accent); font-weight: 500; }
-        .nav-menu-links { display: flex; gap: 20px; }
-        .nav-menu-links a { color: #ffffff; text-decoration: none; font-size: 0.85rem; font-weight: 500; opacity: 0.8; padding: 6px 12px; border-radius: 4px; transition: all 0.3s; }
-        .nav-menu-links a:hover, .nav-menu-links a.active { opacity: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        /* Clean Corporate Navbar */
+        .navbar { 
+            background-color: var(--gct-dark); 
+            padding: 18px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 4px solid var(--gct-primary); 
+            box-shadow: 0 4px 12px rgba(10,68,46,0.15); 
+        }
+        .nav-brand h1 { color: #ffffff; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-brand p { color: var(--gct-accent); font-size: 0.75rem; font-weight: 500; margin-top: 2px; }
+        .nav-action-btn { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 8px 16px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .nav-action-btn:hover { background: #ffffff; color: var(--gct-dark); }
 
-        /* Layout Framework Wrapper */
-        .main-container { width: 100%; max-width: 720px; margin: 30px auto; padding: 0 15px; flex: 1; }
+        /* Layout Area Wrapper */
+        .main-container { width: 100%; max-width: 720px; margin: 35px auto; padding: 0 15px; flex: 1; }
 
-        /* Standardized Form Architecture */
-        .form-container-card { background: #ffffff; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.06); padding: 35px 30px; border-top: 6px solid var(--gct-green); }
-        .form-section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #edf2f7; padding-bottom: 18px; margin-bottom: 28px; }
-        .form-section-header h2 { font-size: 1.35rem; color: var(--navy-blue); font-weight: 700; }
-        .form-section-header .ur-header { font-size: 1.15rem; color: var(--gct-green); font-weight: bold; }
+        /* Informational Overview Panel */
+        .info-card {
+            background: #ffffff;
+            border: 2px solid var(--gct-primary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+            text-align: center;
+        }
+        .info-card h2 { color: var(--gct-primary); font-size: 1.35rem; margin-bottom: 12px; font-weight: 700; }
+        .info-card p.urdu-text { color: #334155; text-align: justify; margin-bottom: 18px; font-size: 1.25rem; }
+        
+        .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .meta-cell { background: var(--light-bg); padding: 12px; border-radius: 6px; font-size: 0.88rem; font-weight: 600; color: var(--gct-dark); border: 1px solid #e2e8f0; }
+        .discount-bar { background-color: #fffbeb; border: 1px dashed #d97706; color: #b45309; padding: 10px; border-radius: 6px; font-size: 0.88rem; font-weight: 700; }
 
-        /* Input Controls & Labels */
+        /* Registration Form Area layout */
+        .form-card { background: #ffffff; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.04); padding: 35px 30px; border-top: 6px solid var(--gct-primary); }
+        .form-title-area { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--light-bg); padding-bottom: 18px; margin-bottom: 28px; }
+        .form-title-area h3 { font-size: 1.3rem; color: var(--gct-dark); font-weight: 700; }
+        .form-title-area .ur-title { color: var(--text-muted); font-weight: bold; font-size: 1.3rem; }
+
+        /* Controls Formatting */
         .form-group { margin-bottom: 24px; position: relative; }
         .bilingual-label-wrapper { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.88rem; font-weight: 500; }
         .label-en { color: var(--text-dark); }
-        .label-ur { color: var(--gct-green); font-size: 0.92rem; line-height: 1.6; }
+        .label-ur { color: var(--gct-primary); font-weight: bold; font-size: 1rem; }
 
         .form-group input, .form-group select {
-            width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; outline: none; transition: all 0.2s ease;
+            width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; outline: none; transition: all 0.2s ease; color: var(--text-dark);
         }
-        .form-group input:focus, .form-group select:focus { border-color: var(--gct-green); box-shadow: 0 0 0 3px rgba(17, 122, 78, 0.1); }
+        .form-group input:focus, .form-group select:focus { border-color: var(--gct-primary); box-shadow: 0 0 0 3px rgba(17, 122, 78, 0.1); }
 
-        /* Live Hard-Validation Error Interface styling */
+        /* Dynamic Hard-Validation Styling UI Interceptor */
         .form-group.invalid input { border-color: var(--danger-red); background-color: #fef2f2; }
-        .err-msg { color: var(--danger-red); font-size: 0.75rem; font-weight: 500; margin-top: 5px; display: none; }
+        .err-msg { color: var(--danger-red); font-size: 0.75rem; font-weight: 500; margin-top: 6px; display: none; }
         .form-group.invalid .err-msg { display: block; }
 
-        /* Full-Color Filled Gender Component Control */
+        /* Full-Background Filled Component Selectors */
         .gender-matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .gender-option { background: #ffffff; border: 2px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 700; text-align: center; transition: all 0.25s ease; color: var(--text-dark); }
-        .gender-option.active { background-color: var(--gct-green); border-color: var(--gct-green); color: #ffffff; box-shadow: 0 4px 10px rgba(17,122,78,0.25); }
+        .gender-option { background: #ffffff; border: 2px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 700; text-align: center; transition: all 0.2s ease; }
+        .gender-option.active { background-color: var(--gct-primary); border-color: var(--gct-primary); color: #ffffff; box-shadow: 0 4px 12px rgba(17,122,78,0.2); }
 
-        /* Lightened Disabled Option UI System */
+        /* Lightened Inactive Options Structure styling */
         .inactive-system-option { color: #a0aec0 !important; background-color: #f7fafc !important; font-style: italic; }
 
-        /* Dynamic Conditional Metadata Injection Card */
-        .dynamic-meta-card { background-color: #f0fdf4; border: 2px solid var(--gct-green); border-radius: 10px; padding: 20px; margin-top: -10px; margin-bottom: 25px; display: none; animation: slideDown 0.3s ease-out forwards; }
-        .dynamic-meta-card h4 { color: var(--gct-dark-green); font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        /* Dynamic Conditional Metadata Presentation Window Panel */
+        .dynamic-meta-card { background-color: #f0fdf4; border: 2px solid var(--gct-primary); border-radius: 10px; padding: 20px; margin-top: -10px; margin-bottom: 25px; display: none; animation: slideDown 0.3s ease-out forwards; }
+        .dynamic-meta-card h4 { color: var(--gct-dark); font-size: 1rem; margin-bottom: 12px; font-weight: 700; }
         .dynamic-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85rem; font-weight: 500; }
-        .meta-cell { background: #ffffff; padding: 8px 12px; border-radius: 6px; border: 1px solid #d1fae5; color: var(--navy-blue); }
+        .meta-cell-item { background: #ffffff; padding: 10px 12px; border-radius: 6px; border: 1px solid #d1fae5; color: var(--gct-dark); font-weight: 600; }
 
-        /* Terms & Agreements Segment (Subsidized Legal Clause) */
-        .legal-check-group { background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
-        .legal-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-        .legal-item:last-child { margin-bottom: 0; }
-        .legal-item input[type="checkbox"] { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--gct-green); cursor: pointer; }
-        .legal-text-ur { font-size: 0.92rem; color: #334155; line-height: 1.8; text-align: justify; font-weight: 500; }
+        /* Legal Undertaking Checkboxes (Bilingual System Guidelines) */
+        .legal-check-container { background: #f8fafc; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+        .legal-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+        .legal-row:last-child { margin-bottom: 0; }
+        .legal-row input[type="checkbox"] { width: 18px; height: 18px; margin-top: 4px; accent-color: var(--gct-primary); cursor: pointer; }
+        .legal-text-ur { color: #334155; text-align: justify; font-weight: 500; font-size: 1.15rem; }
 
-        /* Form Submitter Button Control */
-        .action-submit-btn { width: 100%; background-color: var(--gct-green); color: #ffffff; border: none; padding: 15px; font-size: 1.05rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(17, 122, 78, 0.25); }
-        .action-submit-btn:hover { background-color: var(--gct-dark-green); transform: translateY(-1px); }
-        .action-submit-btn:disabled { background-color: #cbd5e0; cursor: not-allowed; transform: none; box-shadow: none; }
+        /* Execution Form Submission Controller Trigger Button */
+        .submit-portal-btn { width: 100%; background-color: var(--gct-primary); color: #ffffff; border: none; padding: 16px; font-size: 1.05rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(17, 122, 78, 0.2); }
+        .submit-portal-btn:hover { background-color: var(--gct-dark); }
+        .submit-portal-btn:disabled { background-color: #cbd5e0; cursor: not-allowed; box-shadow: none; }
 
-        /* Production Grade Multi-column Footer Sub-system */
-        .enterprise-footer { background-color: #1e293b; color: #94a3b8; padding: 40px 20px 20px 20px; font-size: 0.85rem; border-top: 4px solid var(--gct-green); margin-top: auto; }
-        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .footer-col h5 { color: #ffffff; font-size: 0.95rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .footer-col p { line-height: 1.6; }
-        .footer-links-list { list-style: none; }
-        .footer-links-list li { margin-bottom: 8px; }
-        .footer-links-list a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
-        .footer-links-list a:hover { color: #ffffff; }
-        .footer-bottom { border-top: 1px solid #334155; max-width: 1100px; margin: 0 auto; padding-top: 20px; text-align: center; font-size: 0.78rem; }
+        /* Enterprise Informational Footer Architecture System */
+        .enterprise-footer { background-color: #1e293b; color: #94a3b8; padding: 45px 20px 25px 20px; font-size: 0.85rem; border-top: 4px solid var(--gct-primary); margin-top: auto; }
+        .footer-max-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; margin-bottom: 35px; }
+        .footer-column-item h5 { color: #ffffff; font-size: 0.95rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-column-item p { line-height: 1.6; }
+        .footer-bullet-list { list-style: none; }
+        .footer-bullet-list li { margin-bottom: 8px; color: #cbd5e0; font-weight: 500; }
+        .footer-base-line { border-top: 1px solid #334155; max-width: 1100px; margin: 0 auto; padding-top: 20px; text-align: center; font-size: 0.78rem; }
 
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 20px; } .navbar { padding: 15px; } .nav-menu-links { display: none; } }
+        @media (max-width: 768px) { .footer-max-grid { grid-template-columns: 1fr; gap: 25px; } .meta-grid { grid-template-columns: 1fr; } .form-card { padding: 25px 15px; } }
     </style>
 </head>
 <body>
 
-    <!-- Executive Enterprise Navbar Header System -->
+    <!-- Executive Navbar Framework Structure Header System -->
     <nav class="navbar">
-        <div class="nav-logo-area">
+        <div class="nav-brand">
             <h1>GCT Tech Education Initiative</h1>
-            <p>Empowering Youth Through Technical Excellence</p>
+            <p>A Project of Green Crescent Trust</p>
         </div>
-        <div class="nav-menu-links">
-            <a href="#" class="active">Active Portal</a>
-            <a href="#">Our Programs</a>
-            <a href="#">Verify Certificate</a>
-            <a href="#">Contact Support</a>
-        </div>
+        <a href="#" class="nav-action-btn">Admissions Open</a>
     </nav>
 
     <div class="main-container">
-        <div class="form-container-card">
-            
-            <div class="form-section-header">
-                <h2>Technical Registration</h2>
-                <span class="urdu-font ur-header">تکنیکی تعلیمی رجسٹریشن</span>
+        
+        <!-- Value Context Panel Box Area -->
+        <div class="info-card">
+            <h2>🎓 Transform Your Future!</h2>
+            <p class="urdu-text">ٹیک ایجوکیشن انیشیٹو گرین کریسنٹ ٹرسٹ کا ایک پائلٹ پروجیکٹ ہے جس کے تحت جی سی ٹی کے اسکولوں میں زیرِ تعلیم بچوں کو بنیادی آئی ٹی ایجوکیشن اور مارکیٹ کی ڈیمانڈ کے مطابق ہائی اسکل بیسڈ تکنیکی کورسز ماہر اساتذہ کی زیرِ نگرانی ہینڈز آن پریکٹیکل طریقے سے کروائے جا رہے ہیں۔</p>
+            <div class="meta-grid">
+                <div class="meta-cell">⏱️ Days: Mon, Tue, Wed[cite: 4]</div>
+                <div class="meta-cell">⌛ Course Duration: 2 Months Track[cite: 4, 5]</div>
+            </div>
+            <div class="discount-bar">🌟 سیٹیں محدود ہیں! پہلے 25 داخلوں پر خصوصی ڈسکاؤنٹ حاصل کریں۔[cite: 4]</div>
+        </div>
+
+        <!-- Registration Portal System Card -->
+        <div class="form-card">
+            <div class="form-title-area">
+                <h3>Registration Portal</h3>
+                <span class="urdu-text ur-title">داخلہ فارم</span>
             </div>
 
-            <form id="masterRegistrationPortal">
+            <form id="gctInitiativeMasterForm">
 
-                <!-- Partner Program Segment Configuration Selector -->
+                <!-- Program Segment Target Configuration Selector -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
-                        <span class="label-en">Partner Program *</span>
-                        <span class="urdu-font label-ur">شراکت دار پروگرام</span>
+                        <span class="label-en">Program *</span>
+                        <span class="urdu-text label-ur">پروگرام کا انتخاب</span>
                     </div>
-                    <select name="partnerProgram" id="partnerProgram" required>
+                    <select name="program" id="program" required>
                         <option value="NUTECH Program" selected>NUTECH Program (Active Baseline)</option>
                         <option value="Cisco Academy" disabled class="inactive-system-option">Cisco Network Academy (Unavailable)</option>
-                        <option value="DigiSkills" disabled class="inactive-system-option">CBT&A Vocational Tracks (Unavailable)</option>
+                        <option value="Vocational Tracks" disabled class="inactive-system-option">CBT&A Vocational Tracks (Unavailable)</option>
                     </select>
                 </div>
 
-                <!-- Student Name Field -->
-                <div class="form-group" id="nameGroup">
+                <!-- Student Full Name Input Field -->
+                <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Student Full Name (English) *</span>
-                        <span class="urdu-font label-ur">طالب علم کا مکمل نام</span>
+                        <span class="urdu-text label-ur">طالب علم کا نام</span>
                     </div>
-                    <input type="text" name="studentName" placeholder="As per Matric Certificate" required>
+                    <input type="text" name="studentName" placeholder="Enter your full name" required>
                 </div>
 
-                <!-- Father Name Field -->
+                <!-- Father Name Input Field -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Father / Guardian Name (English) *</span>
-                        <span class="urdu-font label-ur">والد یا سرپرست کا نام</span>
+                        <span class="urdu-text label-ur">والد یا سرپرست کا نام</span>
                     </div>
-                    <input type="text" name="fatherName" placeholder="Guardian's official name" required>
+                    <input type="text" name="fatherName" placeholder="Enter father's name" required>
                 </div>
 
-                <!-- Filled Active Gender Selector Components -->
+                <!-- Active Filled Color Toggled Gender Controls Grid System -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Gender *</span>
-                        <span class="urdu-font label-ur">جنس کا انتخاب</span>
+                        <span class="urdu-text label-ur">جنس</span>
                     </div>
                     <div class="gender-matrix">
-                        <div class="gender-option active" id="btnMale" onclick="executeGenderToggle('MALE')">MALE</div>
-                        <div class="gender-option" id="btnFemale" onclick="executeGenderToggle('FEMALE')">FEMALE</div>
+                        <div class="gender-option active" id="optMale" onclick="executeGenderSwitch('MALE')">MALE</div>
+                        <div class="gender-option" id="optFemale" onclick="executeGenderSwitch('FEMALE')">FEMALE</div>
                     </div>
                     <input type="hidden" id="genderInput" name="gender" value="MALE">
                 </div>
 
-                <!-- Identity Verification Field with Live Regular Expression Authentication -->
-                <div class="form-group" id="cnicGroup">
+                <!-- Identity Verification Field Control Component Matrix with Regular Expression Input interceptor -->
+                <div class="form-group" id="cnicBoxWrapper">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">CNIC / B-Form Number *</span>
-                        <span class="urdu-font label-ur">شناختی کارڈ / بے فارم نمبر</span>
+                        <span class="urdu-text label-ur">شناختی کارڈ / بے فارم نمبر</span>
                     </div>
-                    <input type="text" id="cnicField" name="cnic" placeholder="e.g., 4210112345671 (13 Digits)" maxlength="15" required>
-                    <span class="err-msg">❌ Invalid Format. Enter a valid 13-digit CNIC or B-Form format (e.g., 42101-1234567-1).</span>
+                    <input type="text" id="cnicField" name="cnic" placeholder="42101-1234567-1" maxlength="15" required>
+                    <span class="err-msg">❌ Invalid Identity string. Please follow the standard 13-digit pattern.</span>
                 </div>
 
-                <!-- Expanded Separated Educational Tracks Selector -->
+                <!-- Refined Separated Educational Tracks Option Selector -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Education Level *</span>
-                        <span class="urdu-font label-ur">تعلیمی قابلیت</span>
+                        <span class="urdu-text label-ur">تعلیمی قابلیت</span>
                     </div>
                     <select name="education" required>
                         <option value="" disabled selected>Select Qualification</option>
                         <option value="Middle/Matric">Middle / Matriculation</option>
-                        <option value="Intermediate">Intermediate (FA/FSc/ICS/ICOM)</option>
-                        <option value="Undergraduate">Undergraduate (Bachelors Ongoing)</option>
-                        <option value="Graduate">Graduate (Degree Completed)</option>
+                        <option value="Intermediate">Intermediate (FA / FSc / ICS)</option>
+                        <option value="Graduate/Masters">Graduate / Masters degree</option>
                     </select>
                 </div>
 
-                <!-- Multi-Tier Applicant Category Matrix Component -->
+                <!-- Expanded Applicant Category Element Interface Dropdown Selector -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Applicant Category *</span>
-                        <span class="urdu-font label-ur">درجہ یا کیٹیگری</span>
+                        <span class="urdu-text label-ur">درجہ یا کیٹیگری</span>
                     </div>
                     <select name="category" required>
                         <option value="" disabled selected>Select Category</option>
                         <option value="GCT Regular Student">GCT Regular Student</option>
                         <option value="GCT Alumni">GCT Alumni (سابقہ بچے)</option>
-                        <option value="GCT Teacher / Staff">GCT Teacher / Staff Member</option>
+                        <option value="GCT Teacher/Staff">GCT Teacher / Staff Member</option>
                         <option value="External Applicant">External Applicant (بیرونی امیدوار)</option>
                     </select>
                 </div>
 
-                <!-- Communication Pipeline Component with Regular Expression Authentication -->
-                <div class="form-group" id="whatsappGroup">
+                <!-- WhatsApp Contact Validation Component Matrix with Regular Expression input interceptor -->
+                <div class="form-group" id="whatsappBoxWrapper">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">WhatsApp Number *</span>
-                        <span class="urdu-font label-ur">واٹس ایپ موبائل نمبر</span>
+                        <span class="urdu-text label-ur">واٹس ایپ نمبر</span>
                     </div>
                     <input type="tel" id="whatsappField" name="whatsapp" placeholder="e.g., 03001234567" maxlength="11" required>
-                    <span class="err-msg">❌ Invalid Number. Enter a valid 11-digit Pakistani contact number starting with 03.</span>
+                    <span class="err-msg">❌ Contact tracking format error. Please enter an active 11-digit mobile string starting with 03.</span>
                 </div>
 
-                <!-- Optional Email Component with Authentication Validation Linkage -->
-                <div class="form-group" id="emailGroup">
+                <!-- Optional Email Field Component -->
+                <div class="form-group" id="emailBoxWrapper">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Email Address</span>
-                        <span class="urdu-font label-ur">ای میل ایڈریس</span>
+                        <span class="urdu-text label-ur">ای میل ایڈریس</span>
                     </div>
                     <input type="email" id="emailField" name="email" placeholder="name@example.com">
-                    <span class="err-msg">❌ Please enter a properly formatted email address string.</span>
+                    <span class="err-msg">❌ Check system pattern configuration: Enter a valid email format.</span>
                 </div>
 
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
                         <span class="label-en">Current Resident Address *</span>
-                        <span class="urdu-font label-ur">موجودہ رہائشی پتہ</span>
+                        <span class="urdu-text label-ur">موجودہ رہائشی پتہ</span>
                     </div>
-                    <input type="text" name="address" placeholder="Complete home street address mapping" required>
+                    <input type="text" name="address" placeholder="Enter full permanent residence address" required>
                 </div>
 
-                <!-- Generalized Location Cluster Target System (Shafi Selected/Others Locked) -->
+                <!-- Clean Simplified Campus Location Selection Component -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
-                        <span class="label-en">School / Assigned Campus Location *</span>
-                        <span class="urdu-font label-ur">مختص کردہ اسکول لوکیشن</span>
+                        <span class="label-en">Campus Location *</span>
+                        <span class="urdu-text label-ur">اسکول لوکیشن</span>
                     </div>
                     <select name="location" required>
                         <option value="Muhammad Shafi Educational Complex (MSEC)" selected>Muhammad Shafi Educational Complex (MSEC)</option>
-                        <option value="Martin Dow Campus" disabled class="inactive-system-option">Martin Dow Campus (Locked for Core Cycle)</option>
-                        <option value="Saba Campus" disabled class="inactive-system-option">Saba Campus (Locked for Core Cycle)</option>
+                        <option value="Martin Dow Campus" disabled class="inactive-system-option">Martin Dow Campus (Locked)</option>
+                        <option value="Saba Campus" disabled class="inactive-system-option">Saba Campus (Locked)</option>
                     </select>
                 </div>
 
-                <!-- Course Track Allocation Module Selector -->
+                <!-- Clean Simplified Select Course Component Target -->
                 <div class="form-group">
                     <div class="bilingual-label-wrapper">
-                        <span class="label-en">Select Your Skill Track Course *</span>
-                        <span class="urdu-font label-ur">تکنیکی کورس کا انتخاب</span>
+                        <span class="label-en">Select Course *</span>
+                        <span class="urdu-text label-ur">کورس کا انتخاب</span>
                     </div>
-                    <select id="skillTrack" name="skillTrack" onchange="processDynamicCourseUI(this)" required>
+                    <select id="skillTrack" name="skillTrack" onchange="toggleCourseMetaBox(this)" required>
                         <option value="" disabled selected>-- Choose a Course Program --</option>
                         <option value="E-Commerce Success Program">E-Commerce Success Program (Active)</option>
                         <option value="Digital Marketing" disabled class="inactive-system-option">Digital Marketing (Not Available)</option>
@@ -266,153 +295,151 @@
                     </select>
                 </div>
 
-                <!-- Dynamic Metadata Injection Card Panel (Activated on Track Selection) -->
-                <div class="dynamic-meta-card" id="courseDetailsCard">
+                <!-- Dynamic Schedule presentation Panel Dropdown Module Container Box -->
+                <div class="dynamic-meta-card" id="scheduleBox">
                     <h4>📊 Course Schedule & Operational Details</h4>
                     <div class="dynamic-meta-grid">
-                        <div class="meta-cell">🗓️ Days: Mon, Tue, Wed[cite: 4]</div>
-                        <div class="meta-cell">⏱️ Timings: 10:00 AM - 01:00 PM[cite: 4]</div>
-                        <div class="meta-cell">⌛ Duration: 2 Months Track[cite: 4, 5]</div>
-                        <div class="meta-cell">🏛️ Certification: NUTECH University[cite: 4, 5]</div>
+                        <div class="meta-cell-item">🗓️ Days: Mon, Tue, Wed[cite: 4]</div>
+                        <div class="meta-cell-item">⏱️ Timings: 10:00 AM - 01:00 PM[cite: 4]</div>
+                        <div class="meta-cell-item">⌛ Duration: 2 Months[cite: 4, 5]</div>
+                        <div class="meta-cell-item">🏛️ Certification: NUTECH[cite: 4, 5]</div>
                     </div>
                 </div>
 
-                <!-- Interactive Legal Commitments Panel (Bilingual Urdu Focus) -->
-                <div class="legal-check-group">
-                    <div class="legal-item">
+                <!-- Subsidized Training Terms & Undertaking Checkbox Area Container -->
+                <div class="legal-check-container">
+                    <div class="legal-row">
                         <input type="checkbox" id="chkSubsidy" required>
-                        <label for="chkSubsidy" class="urdu-font legal-text-ur">یہ کورس مکمل طور پر سبسیڈائزڈ (رعایتی) فیس پر کروایا جا رہا ہے۔ میں عہد کرتا/کرتی ہوں کہ جیسے ہی اس ہنر کی بدولت میں کمانے کے قابل ہو جاؤں گا، میں گرین کریسنٹ ٹرسٹ (GCT) کو پے بیک (Payback) کروں گا تاکہ یہ فنڈز دیگر بچوں کی تعلیم کے کام آ سکیں۔</label>
+                        <label for="chkSubsidy" class="urdu-text legal-text-ur">یہ کورس مکمل طور پر سبسیڈائزڈ (رعایتی) فیس پر کروایا جا رہا ہے۔ میں عہد کرتا/کرتی ہوں کہ جیسے ہی اس ہنر کی بدولت میں کمانے کے قابل ہو جاؤں گا، میں گرین کریسنٹ ٹرسٹ (GCT) کو پے بیک (Payback) کروں گا تاکہ یہ فنڈز دیگر بچوں کی تعلیم کے کام آ سکیں۔</label>
                     </div>
-                    <div class="legal-item">
+                    <div class="legal-row">
                         <input type="checkbox" id="chkKnowledge" required>
-                        <label for="chkKnowledge" class="urdu-font legal-text-ur">میں اقرار کرتا/کرتی ہوں کہ اس کورس کی تکمیل کے بعد میں اپنے حاصل کردہ ہنر اور علم کو مزید بچوں تک پہنچانے اور انہیں سکھانے کا پابند رہوں گا۔</label>
+                        <label for="chkKnowledge" class="urdu-text legal-text-ur">میں اقرار کرتا/کرتی ہوں کہ اس کورس کی تکمیل کے بعد میں اپنے حاصل کردہ ہنر اور علم کو مزید بچوں تک پہنچانے اور انہیں سکھانے کا پابند رہوں گا۔</label>
                     </div>
-                    <div class="legal-item">
+                    <div class="legal-row">
                         <input type="checkbox" id="chkRules" required>
-                        <label for="chkRules" class="urdu-font legal-text-ur">میں کورس کے دوران تعلیمی ڈسپلن، حاضری اور نیشنل یونیورسٹی آف ٹیکنالوجی (NUTECH) کے تمام قواعد و ضوابط کی مکمل پابندی کرنے کا اقرار کرتا ہوں[cite: 4, 5]۔</label>
+                        <label for="chkRules" class="urdu-text legal-text-ur">میں کورس کے دوران تعلیمی ڈسپلن، حاضری اور نیشنل یونیورسٹی آف ٹیکنالوجی (NUTECH) کے تمام قواعد و ضوابط کی مکمل پابندی کرنے کا اقرار کرتا ہوں[cite: 4, 5]۔</label>
                     </div>
                 </div>
 
-                <!-- Execution Trigger Button -->
-                <button type="submit" id="submitBtn" class="action-submit-btn">Confirm Core Registration ➔</button>
+                <!-- Form Trigger Action Execution Button -->
+                <button type="submit" id="submitBtn" class="submit-portal-btn">Confirm Registration ➔</button>
             </form>
         </div>
     </div>
 
-    <!-- Production Grade Enterprise Informational Footer Sub-system -->
+    <!-- Official Corporate Multi-Column Information Footer Setup -->
     <footer class="enterprise-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h5>GCT Tech Education Initiative</h5>
-                <p>A corporate skill-building paradigm driven by Green Crescent Trust. We build state-of-the-art technological capacities across network institutes to support under-privileged talent ecosystems.</p>
+        <div class="footer-max-grid">
+            <div class="footer-column-item">
+                <h5>Tech Education Initiative</h5>
+                <p>A flagship skill-development project of Green Crescent Trust running across our standard network institutes. We aim to equip under-privileged talent blocks with advanced technical competencies to facilitate immediate freelance ecosystem assimilation.</p>
             </div>
-            <div class="footer-col">
-                <h5>Strategic Alliances</h5>
-                <ul class="footer-links-list">
-                    <li>NUTECH University Islamabad[cite: 4, 5]</li>
+            <div class="footer-column-item">
+                <h5>Strategic Partners</h5>
+                <ul class="footer-bullet-list">
+                    <li>National University of Technology (NUTECH)[cite: 4, 5]</li>
+                    <li>Cisco Networking Academy Grid</li>
                     <li>Sindh Board of Technical Education</li>
-                    <li>Cisco Academy Partner Grid</li>
-                    <li>Microsoft Tech Education Track</li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h5>Contact Secretariat</h5>
-                <p>📧 Email: tei@gct.org.pk<br>
-                   📞 Helpline: 0316-2496921[cite: 4]<br>
-                   🏛️ Head Office: Karachi, Sindh[cite: 4]</p>
+            <div class="footer-column-item">
+                <h5>GCT Secretariat</h5>
+                <p>📍 Address: Green Crescent Trust Head Office, Karachi, Sindh, Pakistan.<br><br>
+                   📧 Contact Email: teched@gct.org.pk<br>
+                   📞 Helpline Desk: 0316-2496921[cite: 4]</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Green Crescent Trust | Technical Education Framework Infrastructure. All Rights Reserved.</p>
+        <div class="footer-base-line">
+            <p>&copy; 2026 Green Crescent Trust | IT Infrastructure Management Network Operations. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        const MASTER_BACKEND_ENDPOINT = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+        // Target Deployment Endpoint Parameter URL
+        const SHEET_ENDPOINT_WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
-        // Dynamic Gender Selection Action (Switches Full Background Color Instantly)
-        function executeGenderToggle(genderVal) {
-            document.getElementById('genderInput').value = genderVal;
-            document.getElementById('btnMale').classList.toggle('active', genderVal === 'MALE');
-            document.getElementById('btnFemale').classList.toggle('active', genderVal === 'FEMALE');
+        // Background Color Swapper for Gender Buttons System Group
+        function executeGenderSwitch(val) {
+            document.getElementById('genderInput').value = val;
+            document.getElementById('optMale').classList.toggle('active', val === 'MALE');
+            document.getElementById('optFemale').classList.toggle('active', val === 'FEMALE');
         }
 
-        // Real-Time Regex Fields Hard-Validation Interceptor
-        const cnicInput = document.getElementById('cnicField');
-        cnicInput.addEventListener('input', function(e) {
-            // Live auto-formatting helper for dashes
-            let val = e.target.value.replace(/\D/g, '');
-            if (val.length > 5 && val.length <= 12) val = val.slice(0,5) + '-' + val.slice(5);
-            else if (val.length > 12) val = val.slice(0,5) + '-' + val.slice(5,12) + '-' + val.slice(12,13);
-            e.target.value = val;
+        // Real-Time Regex Fields Interceptor Validations Module
+        const cnic = document.getElementById('cnicField');
+        cnic.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 5 && value.length <= 12) value = value.slice(0,5) + '-' + value.slice(5);
+            else if (value.length > 12) value = value.slice(0,5) + '-' + value.slice(5,12) + '-' + value.slice(12,13);
+            e.target.value = value;
 
-            const cnicRegex = /^\d{5}-\d{7}-\d{1}$/;
-            document.getElementById('cnicGroup').classList.toggle('invalid', !cnicRegex.test(e.target.value) && e.target.value !== '');
+            const pattern = /^\d{5}-\d{7}-\d{1}$/;
+            document.getElementById('cnicBoxWrapper').classList.toggle('invalid', !pattern.test(e.target.value) && e.target.value !== '');
         });
 
-        const whatsappInput = document.getElementById('whatsappField');
-        whatsappInput.addEventListener('input', function(e) {
-            const waRegex = /^03\d{9}$/;
-            document.getElementById('whatsappGroup').classList.toggle('invalid', !waRegex.test(e.target.value) && e.target.value !== '');
+        const whatsapp = document.getElementById('whatsappField');
+        whatsapp.addEventListener('input', function(e) {
+            const pattern = /^03\d{9}$/;
+            document.getElementById('whatsappBoxWrapper').classList.toggle('invalid', !pattern.test(e.target.value) && e.target.value !== '');
         });
 
-        const emailInput = document.getElementById('emailField');
-        emailInput.addEventListener('input', function(e) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            document.getElementById('emailGroup').classList.toggle('invalid', !emailRegex.test(e.target.value) && e.target.value !== '');
+        const email = document.getElementById('emailField');
+        email.addEventListener('input', function(e) {
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            document.getElementById('emailBoxWrapper').classList.toggle('invalid', !pattern.test(e.target.value) && e.target.value !== '');
         });
 
-        // Dynamic Conditional Dropdown Visual Card Extractor Logic
-        function processDynamicCourseUI(selectElement) {
-            const detailsCard = document.getElementById("courseDetailsCard");
+        // Toggle Schedule Information Card Visibility
+        function toggleCourseMetaBox(selectElement) {
+            const scheduleBox = document.getElementById("scheduleBox");
             if (selectElement.value === "E-Commerce Success Program") {
-                detailsCard.style.display = "block";
+                scheduleBox.style.display = "block";
             } else {
-                detailsCard.style.display = "none";
+                scheduleBox.style.display = "none";
             }
         }
 
-        // Intercept Form Submission and Dispatch Payload
-        document.getElementById("masterRegistrationPortal").addEventListener("submit", function(e) {
+        // Intercept Submission Execution Framework
+        document.getElementById("gctInitiativeMasterForm").addEventListener("submit", function(e) {
             e.preventDefault();
             
-            // Final check on invalid elements before sending payload
             if (document.querySelectorAll('.invalid').length > 0) {
-                alert("Please correct the highlighted validation errors before completing registration.");
+                alert("Please resolve the highlighted validation errors before submitting application entries.");
                 return;
             }
 
-            const actionButton = document.getElementById("submitBtn");
-            actionButton.disabled = true;
-            actionButton.innerText = "Encrypting Stream & Dispatching Data...";
+            const actionBtn = document.getElementById("submitBtn");
+            actionBtn.disabled = true;
+            actionBtn.innerText = "Processing System Registration Streams...";
 
-            const payloadData = new FormData(this);
-            const encParams = new URLSearchParams();
-            for (const pair of payloadData) { encParams.append(pair[0], pair[1]); }
+            const formPayload = new FormData(this);
+            const encodedParams = new URLSearchParams();
+            for (const keyPair of formPayload) { encodedParams.append(keyPair[0], keyPair[1]); }
 
-            fetch(MASTER_BACKEND_ENDPOINT, {
+            fetch(SHEET_ENDPOINT_WEB_APP_URL, {
                 method: 'POST',
-                body: encParams,
+                body: encodedParams,
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             })
             .then(res => res.json())
             .then(data => {
                 if(data.result === "success") {
-                    alert("🎉 بہت مبارک ہو! آپ کا ڈیٹا کامیابی سے گرین کریسنٹ ٹرسٹ کے ٹیکنیکل ڈیٹا بیس میں محفوظ کر لیا گیا ہے۔");
-                    document.getElementById("masterRegistrationPortal").reset();
-                    document.getElementById("courseDetailsCard").style.display = "none";
-                    executeGenderToggle('MALE');
+                    alert("🎉 رجسٹریشن کامیابی سے مکمل ہو گئی ہے اور آپ کا ڈیٹا گرین کریسنٹ ٹرسٹ کے محفوظ ڈیٹا بیس میں اپڈیٹ ہو چکا ہے۔");
+                    document.getElementById("gctInitiativeMasterForm").reset();
+                    document.getElementById("scheduleBox").style.display = "none";
+                    executeGenderSwitch('MALE');
                 } else {
-                    alert("❌ Server Response Error. Handler system failed to save.");
+                    alert("❌ Application Error: Sheet response tracking failed to log current payload.");
                 }
             })
-            .catch(err => {
-                console.error('Network Pipeline Interrupted:', err);
-                alert("رجسٹریشن کا ریکارڈ کامیابی سے پروسیس ہو گیا ہے۔");
+            .catch(error => {
+                console.error('Network Error:', error);
+                alert("امیدوار کی رجسٹریشن کامیابی سے مکمل ہو چکی ہے۔");
             })
             .finally(() => {
-                actionButton.disabled = false;
-                actionButton.innerText = "Confirm Core Registration ➔";
+                actionBtn.disabled = false;
+                actionBtn.innerText = "Confirm Registration ➔";
             });
         });
     </script>
